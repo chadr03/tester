@@ -42,7 +42,7 @@ public class AutoBox extends Command {
         Robot.box.spit();
         while(Robot.box.IsBallThere())
         {
-          b.delay(.01);
+          b.delay(.01);  //delay may affect other commands
         }
     }
     else
