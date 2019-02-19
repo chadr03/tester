@@ -7,7 +7,7 @@
 
 /**
  * @author Regina Alexander 
- * @version 1.0
+ * @version 1.1
  */
 
 package org.usfirst.frc2582.bet.commands;
@@ -42,7 +42,7 @@ public class AutoBox extends Command {
         Robot.box.spit();
         while(Robot.box.IsBallThere())
         {
-          b.delay(.01);  //delay may affect other commands
+         b.delay(.01);  //delay may affect other commands lol
         }
     }
     else
