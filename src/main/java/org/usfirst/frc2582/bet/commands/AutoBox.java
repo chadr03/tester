@@ -23,7 +23,7 @@ import edu.wpi.first.wpilibj.command.Command;
 
 public class AutoBox extends Command {
 
-  private Boolean fuck;  
+  private Boolean finished;  
   public AutoBox() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -36,7 +36,7 @@ public class AutoBox extends Command {
   protected void initialize() 
   {
     Timer b = new Timer();
-    fuck = false;
+    finished = false;
     if(Robot.box.IsBallThere())
     {
         Robot.box.spit();
@@ -56,7 +56,7 @@ public class AutoBox extends Command {
     //Robot.box.stop();
     
     //Robot.box.close();
-    fuck = true;
+    finished = true;
 }
   
 
@@ -70,7 +70,7 @@ public class AutoBox extends Command {
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return fuck;
+    return finished;
   }
 
   // Called once after isFinished returns true
@@ -86,7 +86,7 @@ public class AutoBox extends Command {
   protected void interrupted() 
   {
     //end();
-    System.out.println("this is fucking stupid");
+    System.out.println("this is finished");
     end();
   }
 }
