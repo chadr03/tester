@@ -6,8 +6,9 @@
 /*----------------------------------------------------------------------------*/
 
 /**
- * @author Regina Alexander 
- * @version 1.1
+ * @author Regina Alexander
+ *  
+ * @version 1.2
  */
 
 package org.usfirst.frc2582.bet.commands;
@@ -24,6 +25,9 @@ import edu.wpi.first.wpilibj.command.Command;
 public class AutoBox extends Command {
 
   private Boolean finished;  
+  private Boolean spit;
+
+
   public AutoBox() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -35,14 +39,16 @@ public class AutoBox extends Command {
   @Override
   protected void initialize() 
   {
-    Timer b = new Timer();
+    finished = false;  //this will tell it when it is done
+    spit = Robot.box.IsBallThere();  //this sets the condition of the roller
+    /*Timer b = new Timer();
     finished = false;
     if(Robot.box.IsBallThere())
     {
         Robot.box.spit();
         while(Robot.box.IsBallThere())
         {
-         b.delay(.01);  //delay may affect other commands lol
+         //b.delay(.01);  //delay may affect other commands lol
         }
     }
     else
@@ -50,21 +56,34 @@ public class AutoBox extends Command {
       Robot.box.suck();
       while(!Robot.box.IsBallThere())
       {
-        b.delay(.01);
+        //b.delay(.01);
       }
     }
     //Robot.box.stop();
     
     //Robot.box.close();
     finished = true;
-}
+  */}
   
 
   // Called repeatedly when this Command is scheduled to run
   @Override
-  protected void execute() {
-        
-      }
+  protected void execute() 
+  {
+    if(Robot.box.IsBallThere() != spit)  //when spit doesnt match with condition then it has 'tripped'
+    {                                    //the sensor
+      finished = true;
+    }
+    
+    if(spit)
+    {
+      Robot.box.spit();                  //spit
+    }
+    else
+    {
+      Robot.box.suck();                  //suck
+    }
+  }
       
     
   // Make this return true when this Command no longer needs to run execute()
@@ -87,6 +106,8 @@ public class AutoBox extends Command {
   {
     //end();
     System.out.println("this is finished");
-    end();
+    //end();  this might still be the correct way
+    finished = true;
   }
 }
+

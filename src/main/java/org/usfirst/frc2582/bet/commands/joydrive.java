@@ -52,7 +52,7 @@ public class joydrive extends Command {
         double y = joys.getY();
         double z = joys.getZ();
 
-        Robot.drivetrain.driveVoltage(z,y);
+        Robot.drivetrain.driveVoltage(z,-y);
 
         //Robot.drivetrain.driveVoltage(x,y);
     }
