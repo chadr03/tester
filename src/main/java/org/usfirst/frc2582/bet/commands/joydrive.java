@@ -48,11 +48,11 @@ public class joydrive extends Command {
 
         Joystick joys = Robot.oi.getjoy();
 
-        double x = joys.getX();
+        //double x = joys.getX();
         double y = joys.getY();
         double z = joys.getZ();
 
-        Robot.drivetrain.driveVoltage(z,-y);
+        Robot.drivetrain.driveVoltage(-y,z);
 
         //Robot.drivetrain.driveVoltage(x,y);
     }

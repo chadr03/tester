@@ -64,7 +64,7 @@ public class OI {
     public JoystickButton button6;
     public JoystickButton button7;
     public JoystickButton button8;
-
+    public JoystickButton snap;
 
 
 
@@ -101,6 +101,9 @@ public class OI {
         button8 = new JoystickButton(gamepad, 8);
         button8.whenPressed(new AutoBox());
         //button8.cancelWhenActive(new AutoBox());
+
+        snap = new JoystickButton(joy, 1);
+        snap.whileHeld(new SnapAndLock());
 
         // SmartDashboard Buttons
         SmartDashboard.putData("Autonomous Command", new AutonomousCommand());
