@@ -70,6 +70,7 @@ public class Robot extends TimedRobot {
         pistons = new pistons();
         limelight = new limelight();  //this is camera
         CameraServer.getInstance().startAutomaticCapture();
+        //i making a comment
 
         DriverStation.Alliance a = Alliance.Blue;  //enum
         if(ds.getAlliance() == a)  //use to set led light
