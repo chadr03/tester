@@ -14,6 +14,8 @@ import edu.wpi.first.wpilibj.command.Command;
 //import sun.tools.tree.WhileStatement;
 
 public class AutoShoot extends Command {
+  boolean done;
+
   public AutoShoot() {
     // Use requires() here to declare subsystem dependencies
     // eg. requires(chassis);
@@ -40,20 +42,24 @@ public class AutoShoot extends Command {
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
+    done = false;
+
     Timer a = new Timer();
 
-    Robot.triangle.upT();
+    Robot.triangle.downT();
     a.delay(.75);
     Robot.pistons.push();
     a.delay(.5);
     Robot.pistons.off();
-    Robot.triangle.downT();
+    //Robot.triangle.downT();
+
+    done = true;
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return done;
   }
 
   // Called once after isFinished returns true
@@ -66,6 +72,6 @@ public class AutoShoot extends Command {
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
+    done = true;
   }
 }

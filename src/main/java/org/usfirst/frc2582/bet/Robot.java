@@ -11,11 +11,13 @@
 
 package org.usfirst.frc2582.bet;
 
+import edu.wpi.first.cameraserver.CameraServer;
 import edu.wpi.first.networktables.NetworkTable;
 import edu.wpi.first.networktables.NetworkTableEntry;
 import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj.DriverStation;
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj.DriverStation.Alliance;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
@@ -66,6 +68,7 @@ public class Robot extends TimedRobot {
         triangle = new triangle();
         pistons = new pistons();
         limelight = new limelight();  //this is camera
+        CameraServer.getInstance().startAutomaticCapture();
 
         DriverStation.Alliance a = Alliance.Blue;  //enum
         if(ds.getAlliance() == a)  //use to set led light
@@ -112,10 +115,65 @@ public class Robot extends TimedRobot {
 
     /**
      * This function is called periodically during autonomous
+     * Project COC
+     * Code
+     * On
+     * Crack
      */
     @Override
-    public void autonomousPeriodic() {
+    public void autonomousPeriodic() 
+    {
         Scheduler.getInstance().run();
+
+        /*Timer a = new Timer();
+        a.reset();
+        a.start();
+        while(a.get() < 4)
+        {
+            Robot.limelight.update();
+
+            if(Robot.limelight.isThereTarget())
+            {
+                double x = Math.cbrt(Robot.limelight.driveSet());
+                double y = Math.cbrt(Robot.limelight.steer());
+                Robot.drivetrain.driveVoltage(x, y);
+            }
+            else
+            {
+                Robot.drivetrain.driveVoltage(0, 0);
+            }
+        }
+
+        Robot.triangle.upT();
+        a.delay(.75);
+        Robot.pistons.push();
+        a.delay(.5);
+        Robot.pistons.off();
+        Robot.triangle.downT();
+
+        a.reset();
+        a.start();
+        while(a.get() < 1)
+        {
+            Robot.drivetrain.driveVoltage(-.5, .25);
+        }
+
+        while(a.get() < 4)
+        {
+            Robot.limelight.update();
+
+            if(Robot.limelight.isThereTarget())
+            {
+                double x = Math.cbrt(Robot.limelight.driveSet());
+                double y = Math.cbrt(Robot.limelight.steer());
+                Robot.drivetrain.driveVoltage(x, y);
+            }
+            else
+            {
+                Robot.drivetrain.driveVoltage(0, 0);
+            }
+        }
+        */
     }
 
     @Override
@@ -125,7 +183,7 @@ public class Robot extends TimedRobot {
         // continue until interrupted by another command, remove
         // this line or comment it out.
         if (autonomousCommand != null) autonomousCommand.cancel();
-        Robot.triangle.downT();
+        Robot.triangle.upT();
     }
 
     /**
@@ -135,5 +193,7 @@ public class Robot extends TimedRobot {
     public void teleopPeriodic() {
         Scheduler.getInstance().run();
         Robot.box.led(Robot.box.IsBallThere());
+        //CameraServer.getInstance().startAutomaticCapture();
+        //Robot.box.printLOL();
     }
 }

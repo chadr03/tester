@@ -78,10 +78,10 @@ public class OI {
         joy = new Joystick(0);
         
         button1 = new JoystickButton(gamepad, 1);
-        button1.whenPressed(new up());
+        button1.whenPressed(new down());
         
         button2 = new JoystickButton(gamepad, 2);
-        button2.whenPressed(new down());
+        button2.whenPressed(new up());
 
         button3 = new JoystickButton(gamepad, 3);
         button3.whileHeld(new push());

@@ -70,13 +70,13 @@ public class triangle extends Subsystem {
 
     public void upT()
     {
-        doubleSolenoid1.set(Value.kForward);    
+        doubleSolenoid1.set(Value.kReverse);    
         // the arrow stands up
     }
 
     public void downT()
     {
-        doubleSolenoid1.set(Value.kReverse);    
+        doubleSolenoid1.set(Value.kForward);    
         // the arrow goes down
     }
 

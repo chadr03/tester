@@ -32,8 +32,12 @@ public class SnapAndLock extends Command {
 
     if(Robot.limelight.isThereTarget())
     {
-      double x = Math.cbrt(Robot.limelight.driveSet());
-      double y = Math.cbrt(Robot.limelight.steer());
+      double x = Robot.limelight.driveSet();
+      double y = Robot.limelight.steer();
+
+      //double x = Robot.limelight.driveSet();
+      //double y = Robot.limelight.steer();
+
       Robot.drivetrain.driveVoltage(x, y);
     }
     else

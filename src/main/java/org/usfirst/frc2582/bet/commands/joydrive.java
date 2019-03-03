@@ -46,11 +46,20 @@ public class joydrive extends Command {
     @Override
     protected void execute() {
 
+        //double tune = 1;
         Joystick joys = Robot.oi.getjoy();
 
+        /*if(joys.getRawButtonPressed(2))
+        {
+            tune = .7;
+        }*/
+
         //double x = joys.getX();
-        double y = joys.getY();
-        double z = joys.getZ();
+        double y = (joys.getY());
+        double z = joys.getZ() * .7;
+
+        //double y = Math.cbrt(joys.getY()) * tune;
+        //double z = Math.cbrt(joys.getZ()) * tune;
 
         Robot.drivetrain.driveVoltage(-y,z);
 
