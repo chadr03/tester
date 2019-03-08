@@ -96,6 +96,8 @@ public class AutoBox extends Command {
   @Override
   protected void end() 
   {
+    Timer b = new Timer();
+    b.delay(.01);  //change this as needed to add extra suck or spit time
     Robot.box.stop();
   }
 
