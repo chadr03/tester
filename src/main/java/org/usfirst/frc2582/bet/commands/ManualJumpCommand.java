@@ -29,7 +29,12 @@ public class ManualJumpCommand extends Command {
   protected void execute() {
     double speed = Robot.oi.gamepad.getY();
     if (Math.abs(speed)<.1){
-      speed=.1;
+      if(!Robot.foot.isUsed()){//should apply small lifting pressue as long jump has not been pressed or manual mode isnt in use
+        speed=.1;
+      }else{
+        speed=0;
+      }
+
     }
     Robot.foot.manualJump(speed);
   }
