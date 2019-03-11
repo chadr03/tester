@@ -29,11 +29,11 @@ public class TongueMoveCommand extends Command {
     //System.out.println(value);
     if (value < -0.3){
       Robot.tongueSubsystem.tongueOut();
-      System.out.println("TOut");
+      //System.out.println("TOut");
     }
     else if (value > 0.3){
       Robot.tongueSubsystem.tongueIn();
-      System.out.println("TIn");
+      //System.out.println("TIn");
     }
     else{
       Robot.tongueSubsystem.tongueOff();

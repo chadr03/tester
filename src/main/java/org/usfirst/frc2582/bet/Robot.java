@@ -102,7 +102,8 @@ public class Robot extends TimedRobot {
     @Override
     public void robotPeriodic() {
     SmartDashboard.putNumber("Arm Position", Robot.foot.getFootPosition());
-
+    SmartDashboard.putBoolean("Foot Limit", Robot.foot.isReverseLimit());
+    
     }
     /**
      * This function is called when the disabled button is hit.
