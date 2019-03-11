@@ -56,7 +56,7 @@ public class joydrive extends Command {
 
         //double x = joys.getX();
         double y = (joys.getY());
-        double z = joys.getZ() * .7;
+        double z = joys.getX() * .7;
 
         //double y = Math.cbrt(joys.getY()) * tune;
         //double z = Math.cbrt(joys.getZ()) * tune;
