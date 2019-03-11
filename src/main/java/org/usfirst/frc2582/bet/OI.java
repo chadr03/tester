@@ -56,8 +56,6 @@ public class OI {
     public Joystick joy;
     public Joystick gamepad;
 
-    public JoystickButton joyButton7;
-    public JoystickButton joyButton2;
     public JoystickButton button1;
     public JoystickButton button2;
     public JoystickButton button3;
