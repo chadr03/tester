@@ -39,6 +39,7 @@ public class up extends Command {
     @Override
     protected void initialize() {
         Robot.triangle.upT();
+        System.out.println("Up");
     }
 
     // Called repeatedly when this Command is scheduled to run

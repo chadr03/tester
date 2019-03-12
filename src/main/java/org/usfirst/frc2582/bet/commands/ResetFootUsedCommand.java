@@ -7,45 +7,47 @@
 
 package org.usfirst.frc2582.bet.commands;
 
+
+
 import org.usfirst.frc2582.bet.Robot;
 
 import edu.wpi.first.wpilibj.command.Command;
 
-public class TongueOutCommand extends Command {
-  public TongueOutCommand() {
+public class ResetFootUsedCommand extends Command {
+  public ResetFootUsedCommand() {
     // Use requires() here to declare subsystem dependencies
-    // eg. requires(chassis);
-    requires(Robot.tongueSubsystem);
+    requires(Robot.foot);
   }
 
   // Called just before this Command runs the first time
   @Override
   protected void initialize() {
+    Robot.foot.setUsed(true);
+    System.out.print("Foot Reset Vale: ");
+    System.out.println(Robot.foot.isUsed());//debug to see if it is set
   }
 
   // Called repeatedly when this Command is scheduled to run
   @Override
   protected void execute() {
-    Robot.tongueSubsystem.tongueOut();
-    System.out.println("Tongue out");
   }
 
   // Make this return true when this Command no longer needs to run execute()
   @Override
   protected boolean isFinished() {
-    return false;
+    return true;
   }
 
   // Called once after isFinished returns true
   @Override
   protected void end() {
-    Robot.tongueSubsystem.tongueOff();
   }
 
   // Called when another command which requires one or more of the same
   // subsystems is scheduled to run
   @Override
   protected void interrupted() {
-    end();
+  end();
   }
+
 }

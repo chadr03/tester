@@ -44,6 +44,7 @@ public class outtake extends Command {
     @Override
     protected void execute() {
         Robot.box.spit();
+        System.out.println("Outtake");
     }
 
     // Make this return true when this Command no longer needs to run execute()

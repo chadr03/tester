@@ -39,6 +39,7 @@ public class down extends Command {
     @Override
     protected void initialize() {
         Robot.triangle.downT();
+        System.out.println("down");
     }
 
     // Called repeatedly when this Command is scheduled to run

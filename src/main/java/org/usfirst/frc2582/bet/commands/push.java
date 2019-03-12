@@ -45,6 +45,7 @@ public class push extends Command {
     @Override
     protected void execute() {
         Robot.pistons.push();
+        System.out.println("Push");
     }
 
     // Make this return true when this Command no longer needs to run execute()
